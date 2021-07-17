@@ -11,16 +11,18 @@ describe('Sign Up', () => {
       .click()
       .type('some@email.com')
 
-    cy.get('select[name="department"]')
+    cy.get('[data-cy="select-department"]')
       .select('core')
       .should('have.value', 'core')
 
-    cy.get('select[name="course"]')
+    cy.get('[data-cy="select-course"]')
       .select('git-it')
       .should('have.value', 'git-it')
 
-    cy.get('input[type="submit"]')
+    cy.get('[data-cy="submit"]')
       .click()
+
+    cy.get('[data-cy="submit-visible"]', {timeout : 10000}).should('be.visible')
 
     cy.get('li')
       .should('contain', 'Some Name - some@email.com - core - git-it')

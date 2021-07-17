@@ -100,6 +100,7 @@ module.exports = class extends React.Component {
           <Field
             placeholder="Name"
             name="name"
+            data-cy="name"
             value={this.state.fields.name}
             onChange={this.onInputChange}
             validate={val => (val ? false : 'Name Required')}
@@ -127,8 +128,8 @@ module.exports = class extends React.Component {
 
           {
             {
-              SAVING: <input value="Saving..." type="submit" disabled />,
-              SUCCESS: <input value="Saved!" type="submit" disabled />,
+              SAVING: <input value="Saving..." type="submit" disabled  />,
+              SUCCESS: <input value="Saved!" type="submit" disabled data-cy="submit-visible"/>,
               ERROR: (
                 <input
                   value="Save Failed - Retry?"
@@ -138,6 +139,7 @@ module.exports = class extends React.Component {
               ),
               READY: (
                 <input
+                  data-cy="submit"
                   value="Submit"
                   type="submit"
                   disabled={this.validate()}

@@ -57,6 +57,7 @@ module.exports = class extends React.Component {
     return (
       <select
         name='department'
+        data-cy="select-department"
         onChange={this.onSelectDepartment}
         value={this.state.department || ''}
       >
@@ -74,7 +75,7 @@ module.exports = class extends React.Component {
     if (!this.state.department || !this.state.courses.length) return <span />;
 
     return (
-      <select name='course' onChange={this.onSelectCourse} value={this.state.course || ''}>
+      <select name='course' data-cy="select-course" onChange={this.onSelectCourse} value={this.state.course || ''}>
         {[
           <option value="" key="course-none">
             Which course?
